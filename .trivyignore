@@ -1,0 +1,24 @@
+# Trivy ignore list — documented triage.
+#
+# RULES:
+#   1. Every entry has an owner, a reason, and an expected resolution date.
+#   2. Reviewed monthly. If a CVE is still here next review, escalate.
+#   3. App-level CVEs do NOT belong here; only OS/base-image CVEs where the
+#      fix is outside our repo's direct control go here.
+
+# ------------------------------------------------------------------
+# libssl3 / OpenSSL on Debian 12 base of gcr.io/distroless/nodejs20-debian12.
+# Status: fixed upstream in 3.0.19-1~deb12u2. Distroless rolling tag
+# (:nonroot) has not yet picked up the rebuilt openssl as of this commit.
+# Mitigation: app does no TLS termination of its own (ingress handles it)
+# and does not parse untrusted X.509 certificates, so practical exposure
+# to these specific CVEs in our service is limited.
+# Owner: AdrDmy
+# Tracked: https://github.com/GoogleContainerTools/distroless/issues
+# Expected resolution: next distroless rebuild (typically <14 days).
+# ------------------------------------------------------------------
+CVE-2026-31789
+CVE-2026-28387
+CVE-2026-28388
+CVE-2026-28389
+CVE-2026-28390
