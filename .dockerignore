@@ -1,0 +1,14 @@
+# Keep the build context small and predictable.
+node_modules
+npm-debug.log*
+.git
+.gitignore
+.dockerignore
+Dockerfile
+README*
+*.md
+.env*
+test
+coverage
+.vscode
+.idea

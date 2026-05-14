@@ -1,0 +1,22 @@
+{
+  "name": "cloudfide-demo-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal Express service used as a reference target for the CI/CD pipeline.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test \"test/**/*.test.js\"",
+    "lint": "eslint .",
+    "audit:ci": "npm audit --audit-level=high --omit=dev"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.10.0"
+  }
+}
