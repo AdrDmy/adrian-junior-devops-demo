@@ -95,7 +95,7 @@ jobs:
             GIT_SHA=${{ github.sha }}
             APP_VERSION=pr-${{ github.event.pull_request.number }}
       - name: Trivy image scan
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: pr-${{ github.event.pull_request.number }}:scan
           severity: HIGH,CRITICAL
