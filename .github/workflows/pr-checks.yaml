@@ -104,6 +104,11 @@ jobs:
           trivyignores: ./.trivyignore
           format: sarif
           output: trivy.sarif
+          # Without this, trivy-action generates SARIF including ALL severities
+          # (LOW/MEDIUM included) and uses that report for the exit-code check —
+          # bypassing both `severity:` and effectively bloating noise in the
+          # Security tab. With true, SARIF respects the severity filter above.
+          limit-severities-for-sarif: true
       - name: Upload Trivy SARIF
         if: always()
         uses: github/codeql-action/upload-sarif@v3
