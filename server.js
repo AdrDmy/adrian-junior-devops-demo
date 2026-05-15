@@ -1,7 +1,8 @@
 // Minimal Express server used as a CI/CD target.
-// - /health is liveness/readiness; cheap and side-effect free.
-// - /version returns the image tag injected at build time via env.
-// - graceful shutdown on SIGTERM so K8s rolling updates don't drop traffic.
+//   /health  — liveness/readiness probe, cheap and side-effect free
+//   /version — returns the image tag injected at build time via env
+//   /        — plain text greeting that includes the version
+// Graceful shutdown on SIGTERM so K8s rolling updates don't drop in-flight traffic.
 
 const express = require('express');
 

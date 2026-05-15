@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "node --test \"test/**/*.test.js\"",
+    "test": "node --test test/server.test.js",
     "lint": "eslint .",
     "audit:ci": "npm audit --audit-level=high --omit=dev"
   },
